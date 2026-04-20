@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+
+    /* Color */
+
+    --color-primary: #058ED9;
+    --color-secondary: #483D3F;
+    --color-accent: #06A77D;
+    --color-background: #ffffff;
+    --color-surface: #F4EBD9;
+    --color-text: #000;
+    --color-muted: #A39A92;
+    --color-border: #D1D5DB;
+
+
+    /*Containers/Cards*/
+
+
+}

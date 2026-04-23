@@ -1,20 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Nova+Flat&family=Oxanium:wght@200..800&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
+  /* Color */
 
-    /* Color */
+  --color-primary: #058ed9;
+  --color-secondary: #483d3f;
+  --color-accent: #06a77d;
+  --color-background: #ffffff;
+  --color-surface: #f4ebd9;
+  --color-text: #000;
+  --color-muted: #a39a92;
+  --color-border: #d1d5db;
 
-    --color-primary: #058ED9;
-    --color-secondary: #483D3F;
-    --color-accent: #06A77D;
-    --color-background: #ffffff;
-    --color-surface: #F4EBD9;
-    --color-text: #000;
-    --color-muted: #A39A92;
-    --color-border: #D1D5DB;
+/*Fonts*/
+
+--font-title: "Nova Flat", system-ui;
 
 
-    /*Containers/Cards*/
+}
 
+  /*Containers/Cards*/
+@layer components {
+  .button {
+    background: var(--color-accent);
+    color: var(--color-text);
+    border: none;
+    
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
 
+    @media (min-width: 640px) {
+      width: 150px;
+      height: 100px;
+      font-size: 25px;
+      border-radius: 14px;
+    }
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 6px 16px color-mix(in srgb, var(--color-accent), transparent 70%),
+      0 10px 22px rgba(15, 23, 42, 0.12);
+  }
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  overflow-x: clip;
 }

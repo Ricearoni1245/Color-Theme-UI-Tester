@@ -38,7 +38,7 @@ function App() {
 
   function themeList() {
     const textColorClasses: Record<keyof ThemeColors, string> = {
-      primary: "text-primary w-i ",
+      primary: "text-primary ",
       secondary: "text-secondary",
       accent: "text-accent",
       background: "text-background",
@@ -49,37 +49,39 @@ function App() {
     };
 
     const colorClasses: Record<keyof ThemeColors, string> = {
-      primary: "w-full h-20 bg-primary",
-      secondary: "w-full h-20  bg-secondary",
-      accent: "w-full h-20  bg-accent",
-      background: "w-full h-20  bg-background",
-      surface: "w-full h-20  bg-surface",
-      text: "w-full h-20  bg-text",
-      muted: "w-full h-20  bg-muted",
-      border: "w-full h-20  bg-border",
+      primary: "lg:size-50 md:size-40 size-30 border-2 border-black bg-primary ",
+      secondary: "lg:size-50 md:size-40 size-30 border-2 border-black bg-secondary",
+      accent: "lg:size-50 md:size-40 size-30 border-2 border-black bg-accent",
+      background: "lg:size-50 md:size-40 size-30 border-2 border-black bg-background",
+      surface: "lg:size-50 md:size-40 size-30 border-2 border-black bg-surface",
+      text: "lg:size-50 md:size-40 size-30 border-2 border-black bg-text",
+      muted: "lg:size-50 md:size-40 size-30 border-2 border-black bg-muted",
+      border: "lg:size-50 md:size-40 size-30 border-2 border-black bg-border",
     };
     return (
-      <li className='flex flex-col items-center'>
-        <h2 className="text-xl mb-5">{currentThemeName}</h2>
-        <ul>
+      <div className=' mt-10 sm:mt-20 flex flex-col items-center  mx-auto'>
+        <ul className="flex items-center justify-center flex-wrap lg:max-w-300 md: mx-auto gap-x-15 sm:gap-y-20 gap-y-3 mb-20 sm:mb-40">
           {Object.entries(currentTheme.colors).map(
             ([colorName, colorValue]) => {
               const typedColorName = colorName as keyof ThemeColors;
               const colorClass = colorClasses[typedColorName];
-
+              const capitalized = colorName.charAt(0).toUpperCase() + colorName.slice(1)
               return (
-                <div className="flex flex-col justify-center items-center w-screen">
+              
                   
-                  <li className='w-40 flex flex-col items-center'>
-                    <p className='text-black'>{colorName}: {colorValue}</p>
+                <li className='w-fit flex flex-col items-center '>
+                  <div className='flex flex-col justify-center items-center text-center'>
+                    <p className=' text-xl text-black'>{capitalized}</p>
+                    <p className='text-xl text-black'>{colorValue}</p>
+                  </div>
                     <div className={colorClass}></div>
                   </li>
-                </div>
+                
               );
-            },
+            }, 
           )}
         </ul>
-      </li>
+      </div>
     );
   }
 
@@ -96,16 +98,15 @@ function App() {
 
   return (
     <div style={themeVars as React.CSSProperties}>
-      <div className="flex flex-row w-screen justify-around mt-10">
-        <button onClick={previousTheme} className='bg-accent w-fit p-5 text-white text-2xl rounded-md '>Previous</button>
+      <div className="  grid grid-row-2 grid-col-2 gap-4 mt-5 sm:flex flex-row w-screen h-s justify-evenly items-center  ">
+        <button onClick={previousTheme} className=' font-title order-2  button'>Previous</button>
 
-        <h1>{currentThemeName}</h1>
+        <h1 className=" font-title text-4xl sm: order-1 col-span-2 text-center  sm:mt-0 sm:order-2" >{currentThemeName}</h1>
 
-        <button onClick={nextTheme} className='bg-accent w-fit p-5 text-white text-2xl rounded-md'>Next</button>
+        <button onClick={nextTheme} className=' font-title order-3 button'>Next</button>
       </div>
 
-      <h2 className=" my-10 text-xl text-center">Current Theme List:</h2>
-      <ul className='flex flex-col justify-center items-center'>{themeList()}</ul>
+      <div className='flex items-center mx-auto'>{themeList()}</div>
     </div>
   );
 }

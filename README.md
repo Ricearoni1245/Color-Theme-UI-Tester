@@ -13,6 +13,8 @@ Currently, this repo has:
 - initialized usestate in `app.tsx`
 - created a tailwind.css theme system in `app.css`
 - Created preview UI showcasing color elements and showcase
+- Navbar component
+- React Routing
 
 ---
 

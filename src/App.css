@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Nova+Flat&family=Oxanium:wght@200..800&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');@import "tailwindcss";
 @import "tailwindcss";
 
 @theme {
@@ -15,8 +15,12 @@
 
 /*Fonts*/
 
---font-title: "Nova Flat", system-ui;
+--font-title:  "Raleway", sans-serif;
+--font-main: "Merriweather", serif;
 
+/*weights*/
+--font-weight-bold: 600;
+--font-weight-semi: 500;
 
 }
 
@@ -56,6 +60,26 @@
       0 6px 16px color-mix(in srgb, var(--color-accent), transparent 70%),
       0 10px 22px rgba(15, 23, 42, 0.12);
   }
+
+  .mobile-nav-item {
+    background-color: var(--color-surface);
+    text-align: left;
+    font-family: var(--font-main);
+    font-size: 20px;
+    padding: 5px 0px 5px 24px;
+    width: 100%;
+    font-weight: var(--font-weight-semi);
+  }
+
+  .desktop-nav-item {
+    font-family: var(--font-title);
+    font-size: 20px;
+    font-weight: var(--font-weight-semi);
+    @media (max-width: 1024px) {
+      font-size: 18px;
+    }
+  }
+
 }
 
 html,
